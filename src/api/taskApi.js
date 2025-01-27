@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://ec2-3-250-168-19.eu-west-1.compute.amazonaws.com:5000";
+const API_BASE_URL = "http://localhost:5000";
 
 export const getTasks = async (index=0) => {
   const response = await fetch(`${API_BASE_URL}/tasks?index=${index}`);
