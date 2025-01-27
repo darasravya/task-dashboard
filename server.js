@@ -8,93 +8,13 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Sample data
-let tasks = [
-  {
-    id: 1,
-    title: "Complete React Project",
-    description: "Finish implementing the task dashboard",
-    dueDate: "2025-01-30",
-    completed: false,
-  },
-  {
-    id: 2,
-    title: "Buy Groceries",
-    description: "Get milk, eggs, and bread from the store",
-    dueDate: "2025-01-25",
-    completed: true,
-  },
-  {
-    id: 3,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-  {
-    id: 4,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-  {
-    id: 5,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-  {
-    id: 6,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-  {
-    id: 7,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-  {
-    id: 8,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-  {
-    id: 9,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-  {
-    id: 10,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-  {
-    id: 11,
-    title: "Plan Weekday Work",
-    description: "Research on tasks",
-    dueDate: "2025-01-28",
-    completed: true,
-  },
-  {
-    id: 12,
-    title: "Plan Weekend Trip",
-    description: "Research places to visit and prepare an itinerary",
-    dueDate: "2025-01-28",
-    completed: false,
-  },
-];
+const tasks = Array.from({ length: 15 }, (_, i) => ({
+  id: i + 1,
+  title: `Task ${i + 1}`,
+  description: `Description for Task ${i + 1}`,
+  dueDate: new Date().toISOString().split("T")[0],
+  completed: i % 2 === 0, // Alternate between completed and incomplete
+}));
 
 //Get tasks with pagination
 app.get("/tasks", (req, res) => {
